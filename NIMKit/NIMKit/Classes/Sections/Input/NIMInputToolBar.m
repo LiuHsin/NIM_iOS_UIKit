@@ -30,18 +30,18 @@
         
         _voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_voiceButton setImage:[UIImage nim_imageInKit:@"icon_toolview_voice_normal"] forState:UIControlStateNormal];
-        [_voiceButton setImage:[UIImage nim_imageInKit:@"icon_toolview_voice_pressed"] forState:UIControlStateHighlighted];
+        [_voiceButton setImage:[UIImage nim_imageInKit:@"icon_toolview_voice_normal"] forState:UIControlStateHighlighted];
         [_voiceButton sizeToFit];
         
         
         _emoticonBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_emoticonBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_emotion_normal"] forState:UIControlStateNormal];
-        [_emoticonBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_emotion_pressed"] forState:UIControlStateHighlighted];
+        [_emoticonBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_emotion_normal"] forState:UIControlStateHighlighted];
         [_emoticonBtn sizeToFit];
         
         _moreMediaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_moreMediaBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_add_normal"] forState:UIControlStateNormal];
-        [_moreMediaBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_add_pressed"] forState:UIControlStateHighlighted];
+        [_moreMediaBtn setImage:[UIImage nim_imageInKit:@"icon_toolview_add_normal"] forState:UIControlStateHighlighted];
         [_moreMediaBtn sizeToFit];
         
         _recordButton = [UIButton buttonWithType:UIButtonTypeCustom];
