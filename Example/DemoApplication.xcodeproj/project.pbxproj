@@ -211,7 +211,7 @@
 				TargetAttributes = {
 					61F16E721BC567F700ABEE57 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 5AZD542DGT;
+						DevelopmentTeam = N7BF648G9P;
 					};
 				};
 			};
@@ -446,7 +446,7 @@
 			baseConfigurationReference = 01CDF99A96FF160EA80590F1 /* Pods-DemoApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AZD542DGT;
+				DEVELOPMENT_TEAM = N7BF648G9P;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DemoApplication/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -456,7 +456,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.DemoApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renshi.GengGuangTianDi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -466,7 +466,7 @@
 			baseConfigurationReference = 96B8D4920413100CF9B6F36D /* Pods-DemoApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AZD542DGT;
+				DEVELOPMENT_TEAM = N7BF648G9P;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DemoApplication/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -476,7 +476,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.DemoApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renshi.GengGuangTianDi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

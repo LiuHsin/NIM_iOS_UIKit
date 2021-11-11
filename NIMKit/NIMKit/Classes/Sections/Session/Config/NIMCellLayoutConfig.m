@@ -171,6 +171,9 @@
     {
         return [config enableBackgroundBubbleView:model.message];
     }
+    if (model.message.messageType == NIMMessageTypeAudio || model.message.messageType ==  NIMMessageTypeImage || model.message.messageType ==  NIMMessageTypeVideo) {
+        return  NO;
+    }
     return YES;
 }
 

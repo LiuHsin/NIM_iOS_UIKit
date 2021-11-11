@@ -18,13 +18,13 @@
     {
         if (isRight)
         {
-            _normalBackgroundImage    =  [[UIImage nim_imageInKit:@"icon_sender_text_node_normal"] resizableImageWithCapInsets:UIEdgeInsetsFromString(@"{18,25,17,25}") resizingMode:UIImageResizingModeStretch];
+            _normalBackgroundImage    =  [[UIImage nim_imageInKit:@"icon_sender_text_node_normal"] resizableImageWithCapInsets:UIEdgeInsetsFromString(@"{10,10,10,10}") resizingMode:UIImageResizingModeStretch];
             _highLightBackgroundImage =  [[UIImage nim_imageInKit:@"icon_sender_text_node_pressed"] resizableImageWithCapInsets:UIEdgeInsetsFromString(@"{18,25,17,25}") resizingMode:UIImageResizingModeStretch];
             
         }
         else
         {
-            _normalBackgroundImage    =  [[UIImage nim_imageInKit:@"icon_receiver_node_normal"] resizableImageWithCapInsets:UIEdgeInsetsFromString(@"{18,25,17,25}") resizingMode:UIImageResizingModeStretch];
+            _normalBackgroundImage    =  [[UIImage nim_imageInKit:@"icon_receiver_node_normal"] resizableImageWithCapInsets:UIEdgeInsetsFromString(@"{10,10,10,10}") resizingMode:UIImageResizingModeStretch];
             _highLightBackgroundImage =  [[UIImage nim_imageInKit:@"icon_receiver_node_pressed"] resizableImageWithCapInsets:UIEdgeInsetsFromString(@"{18,25,17,25}") resizingMode:UIImageResizingModeStretch];
         }
     }
