@@ -379,7 +379,8 @@
     CGFloat protraitRightToBubble = 5.f;
     if (!self.model.shouldShowLeft)
     {
-        CGFloat right = self.model.shouldShowAvatar? CGRectGetMinX(self.headImageView.frame)  - protraitRightToBubble : self.nim_width;
+        //self.nim_width - 15 当不显示头像时右边距为15
+        CGFloat right = self.model.shouldShowAvatar? CGRectGetMinX(self.headImageView.frame)  - protraitRightToBubble : self.nim_width - 15;
         left = right - CGRectGetWidth(self.bubbleView.bounds);
     } else {
         if (![self needShowSelectButton]) {

@@ -52,7 +52,7 @@
         _tipLabel.textColor = [UIColor whiteColor];
         _tipLabel.textAlignment = NSTextAlignmentCenter;
         _tipLabel.text = @"手指上滑，取消发送".nim_localized;
-        [self addSubview:_tipLabel];
+//        [self addSubview:_tipLabel];
         
         self.phase = AudioRecordPhaseEnd;
     }
