@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
 
 - (NSString *)sessionTitle{
@@ -54,9 +55,16 @@
     //构造自定义消息
     NIMMessage *message = [[NIMMessage alloc] init];
     message.messageObject = object;
-    
+
     //发送消息
     [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:self.session error:nil];
+}
+
+- (void)sendMessage:(NIMMessage *)message {
+    [super sendMessage:message];
+    
+    NIMKitSetting *setting = [[[NIMKit sharedKit] config] setting:message];
+    setting.showAvatar = NO;
 }
 
 @end

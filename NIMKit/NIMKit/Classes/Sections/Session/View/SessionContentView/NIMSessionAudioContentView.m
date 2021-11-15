@@ -100,7 +100,7 @@
     UIColor *color = nil;
     if (data.shouldShowLeft)
     {
-        color = [UIColor colorWithHex:0xF3F3F3 alpha:1];
+        color = [UIColor colorWithHex:0xFFFFFF alpha:1];
     }
     else
     {
@@ -152,14 +152,15 @@
             break;
         case NIMSessionMessageContentViewLayoutRight:
             {
-                backgroundWidth = self.nim_width - 2 - contentInsets.right * .5f;
+                backgroundWidth = self.nim_width - contentInsets.right * .5f + 5;
                 backgroundLeft = 2;
             }
             break;
         default:
         {
             if (self.model.message.isOutgoingMsg) {
-                backgroundWidth = self.nim_width - 2 - contentInsets.right * .5f;
+                //将宽度拉长与普通消息堆起
+                backgroundWidth = self.nim_width - contentInsets.right * .5f + 5;
                 backgroundLeft = 2;
             } else {
                 backgroundWidth = self.nim_width - contentInsets.left * .5f - 2;
