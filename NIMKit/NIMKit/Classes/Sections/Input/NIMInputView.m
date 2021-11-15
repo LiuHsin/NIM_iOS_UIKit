@@ -260,7 +260,7 @@
 {
     if(recording)
     {
-        self.audioRecordIndicator.center = self.superview.center;
+        self.audioRecordIndicator.center = CGPointMake(NIMKit_UIScreenWidth / 2, NIMKit_UIScreenHeight - 189);
         [self.superview addSubview:self.audioRecordIndicator];
         self.recordPhase = AudioRecordPhaseRecording;
     }

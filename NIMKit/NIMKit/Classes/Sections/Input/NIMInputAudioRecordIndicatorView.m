@@ -10,15 +10,16 @@
 #import "UIImage+NIMKit.h"
 #import "NIMGlobalMacro.h"
 
-#define NIMKit_ViewWidth 160
-#define NIMKit_ViewHeight 110
+#define NIMKit_ViewWidth 163
+#define NIMKit_ViewHeight 125
 
-#define NIMKit_TimeFontSize 30
-#define NIMKit_TipFontSize 15
+#define NIMKit_TimeFontSize 14
+#define NIMKit_TipFontSize 14
 
 @interface NIMInputAudioRecordIndicatorView(){
-    UIImageView *_backgrounView;
-    UIImageView *_tipBackgroundView;
+    UIImageView *_whiteView;
+    UIImageView *_orangeView;
+    UIButton *_cancelBtn;
 }
 
 @property (nonatomic, strong) UILabel *timeLabel;
@@ -32,27 +33,34 @@
     self = [super init];
     if(self) {
         self.frame = CGRectMake(0, 0, NIMKit_ViewWidth, NIMKit_ViewHeight);
-        _backgrounView = [[UIImageView alloc] initWithImage:[UIImage nim_imageInKit:@"icon_input_record_indicator"]];
-        [self addSubview:_backgrounView];
+        _whiteView = [[UIImageView alloc] initWithImage:[UIImage nim_imageInKit:@"icon_input_record_indicator"]];
+        _whiteView.frame = CGRectMake(0, 0, NIMKit_ViewWidth, CGRectGetHeight(_whiteView.bounds));
+        [self addSubview:_whiteView];
         
-        _tipBackgroundView = [[UIImageView alloc] initWithImage:[UIImage nim_imageInKit:@"icon_input_record_indicator_cancel"]];
-        _tipBackgroundView.hidden = YES;
-        _tipBackgroundView.frame = CGRectMake(0, NIMKit_ViewHeight - CGRectGetHeight(_tipBackgroundView.bounds), NIMKit_ViewWidth, CGRectGetHeight(_tipBackgroundView.bounds));
-        [self addSubview:_tipBackgroundView];
+        _orangeView = [[UIImageView alloc] initWithImage:[UIImage nim_imageInKit:@"icon_input_record_indicator_cancel"]];
+        _orangeView.hidden = YES;
+        _orangeView.frame = CGRectMake(0, 0, NIMKit_ViewWidth, CGRectGetHeight(_orangeView.bounds));
+        [self addSubview:_orangeView];
+        
+        _cancelBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+        [_cancelBtn setImage:[UIImage nim_imageInKit:@"icon_input_record_cancel"] forState:UIControlStateNormal];
+        [_cancelBtn setImage:[UIImage nim_imageInKit:@"icon_input_record_cancel_selected"] forState:UIControlStateSelected];
+        _cancelBtn.frame = CGRectMake((NIMKit_ViewWidth - 40)/2, 85, 40, 40);
+        [self addSubview:_cancelBtn];
         
         _timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _timeLabel.font = [UIFont boldSystemFontOfSize:NIMKit_TimeFontSize];
-        _timeLabel.textColor = [UIColor whiteColor];
+        _timeLabel.font = [UIFont fontWithName:@"" size:NIMKit_TimeFontSize];
+        _timeLabel.textColor = [UIColor colorWithRed:40/255 green:50/255 blue:67/255 alpha:1];
         _timeLabel.textAlignment = NSTextAlignmentCenter;
-        _timeLabel.text = @"00:00";
-        [self addSubview:_timeLabel];
+        _timeLabel.text = @"00: 00";
+        [_whiteView addSubview:_timeLabel];
         
         _tipLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _tipLabel.font = [UIFont systemFontOfSize:NIMKit_TipFontSize];
+        _tipLabel.font = [UIFont fontWithName:@"" size:NIMKit_TipFontSize];
         _tipLabel.textColor = [UIColor whiteColor];
         _tipLabel.textAlignment = NSTextAlignmentCenter;
-        _tipLabel.text = @"手指上滑，取消发送".nim_localized;
-//        [self addSubview:_tipLabel];
+        _tipLabel.text = @"取消 发送".nim_localized;
+        [_orangeView addSubview:_tipLabel];
         
         self.phase = AudioRecordPhaseEnd;
     }
@@ -62,26 +70,31 @@
 - (void)setRecordTime:(NSTimeInterval)recordTime {
     NSInteger minutes = (NSInteger)recordTime / 60;
     NSInteger seconds = (NSInteger)recordTime % 60;
-    _timeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd", minutes, seconds];
+    _timeLabel.text = [NSString stringWithFormat:@"%02zd: %02zd", minutes, seconds];
 }
 
 - (void)setPhase:(NIMAudioRecordPhase)phase {
     if(phase == AudioRecordPhaseStart) {
         [self setRecordTime:0];
+        _cancelBtn.selected = NO;
     } else if(phase == AudioRecordPhaseCancelling) {
-        _tipLabel.text = @"松开手指，取消发送".nim_localized;
-        _tipBackgroundView.hidden = NO;
+        _tipLabel.text = @"取消 发送".nim_localized;
+        _orangeView.hidden = NO;
+        _cancelBtn.selected = YES;
     } else {
-        _tipLabel.text = @"手指上滑，取消发送".nim_localized;
-        _tipBackgroundView.hidden = YES;
+        _tipLabel.text = @"取消 发送".nim_localized;
+        _orangeView.hidden = YES;
+        _cancelBtn.selected = NO;
     }
 }
 
 - (void)layoutSubviews {
     CGSize size = [_timeLabel sizeThatFits:CGSizeMake(NIMKit_ViewWidth, MAXFLOAT)];
-    _timeLabel.frame = CGRectMake(0, 36, NIMKit_ViewWidth, size.height);
+    _timeLabel.frame = CGRectMake(0, 0, NIMKit_ViewWidth, size.height);
+    _timeLabel.center = _whiteView.center;
     size = [_tipLabel sizeThatFits:CGSizeMake(NIMKit_ViewWidth, MAXFLOAT)];
-    _tipLabel.frame = CGRectMake(0, NIMKit_ViewHeight - 10 - size.height, NIMKit_ViewWidth, size.height);
+    _tipLabel.frame = CGRectMake(0, 0, NIMKit_ViewWidth, size.height);
+    _tipLabel.center = _orangeView.center;
 }
 
 
