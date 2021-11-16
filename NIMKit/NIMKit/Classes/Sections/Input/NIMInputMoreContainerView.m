@@ -158,7 +158,7 @@ NSInteger NIMButtonBegintLeftX = 11;
     {
         UIButton *button = [_mediaButtons objectAtIndex:btnIndex];
         [button addTarget:self action:@selector(onTouchButton:) forControlEvents:UIControlEventTouchUpInside];
-        CGRect iconRect = CGRectMake(span + (NIMButtonItemWidth + span) * btnIndex, 58, NIMButtonItemWidth, NIMButtonItemHeight);
+        CGRect iconRect = CGRectMake(span + (NIMButtonItemWidth + span) * btnIndex, 11, NIMButtonItemWidth, NIMButtonItemHeight);
         [button setFrame:iconRect];
         [subView addSubview:button];
     }

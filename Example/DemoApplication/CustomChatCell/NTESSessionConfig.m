@@ -14,12 +14,13 @@
 
 - (NSArray *)mediaItems{
     NSArray *defaultMediaItems = [NIMKit sharedKit].config.defaultMediaItems;
-    NIMMediaItem* custom =
-             [NIMMediaItem item:@"sendCustomMessage"
-                    normalImage:[UIImage imageNamed:@"icon_custom_normal"]
-                  selectedImage:[UIImage imageNamed:@"icon_custom_pressed"]
-                          title:@"自定义消息"];
-    return [defaultMediaItems arrayByAddingObject:custom];
+//    NIMMediaItem* custom =
+//             [NIMMediaItem item:@"sendCustomMessage"
+//                    normalImage:[UIImage imageNamed:@"icon_custom_normal"]
+//                  selectedImage:[UIImage imageNamed:@"icon_custom_pressed"]
+//                          title:@"自定义消息"];
+//    return [defaultMediaItems arrayByAddingObject:custom];
+    return  defaultMediaItems;
 }
 
 - (BOOL)disableCharlet

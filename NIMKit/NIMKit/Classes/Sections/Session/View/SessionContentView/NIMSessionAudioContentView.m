@@ -50,12 +50,6 @@
 
 - (void)addVoiceView{
     _audioBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-    if (@available(iOS 11.0, *)) {
-        _audioBackgroundView.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
-    } else {
-        // Fallback on earlier versions
-    }
-    _audioBackgroundView.layer.cornerRadius = 10.f;
     _audioBackgroundView.userInteractionEnabled = NO;
     [self addSubview:_audioBackgroundView];
     
@@ -101,13 +95,23 @@
     if (data.shouldShowLeft)
     {
         color = [UIColor colorWithHex:0xFFFFFF alpha:1];
+        if (@available(iOS 11.0, *)) {
+            _audioBackgroundView.layer.maskedCorners = kCALayerMaxXMinYCorner | kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
+        } else {
+            // Fallback on earlier versions
+        }
     }
     else
     {
         color = [UIColor colorWithHex:0x002FA7 alpha:1];
+        if (@available(iOS 11.0, *)) {
+            _audioBackgroundView.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
+        } else {
+            // Fallback on earlier versions
+        }
     }
-    
     _audioBackgroundView.backgroundColor = color;
+    _audioBackgroundView.layer.cornerRadius = 10.f;
 }
 
 
