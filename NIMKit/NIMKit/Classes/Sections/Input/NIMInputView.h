@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, NIMAudioRecordPhase) {
 @optional
 
 - (void)didChangeInputHeight:(CGFloat)inputHeight;
+- (void)atGroup;
 
 @end
 
@@ -71,5 +72,6 @@ typedef NS_ENUM(NSInteger, NIMAudioRecordPhase) {
 
 - (void)refreshReplyedContent:(NIMMessage *)message;
 - (void)dismissReplyedContent;
+- (void)atGroup;
 
 @end

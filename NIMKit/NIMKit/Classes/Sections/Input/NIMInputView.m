@@ -302,6 +302,12 @@
     [self setNeedsLayout];
 }
 
+- (void) atGroup {
+    if (self.inputDelegate && [self.inputDelegate respondsToSelector:@selector(atGroup)]) {
+        [self.inputDelegate atGroup];
+    }
+}
+
 #pragma mark - private methods
 
 - (void)setFrame:(CGRect)frame
@@ -570,11 +576,12 @@
                 config.teamId = self.session.sessionId;
                 config.session = self.session;
                 config.filterIds = @[[NIMSDK sharedSDK].loginManager.currentAccount];
-                NIMContactSelectViewController *vc = [[NIMContactSelectViewController alloc] initWithConfig:config];
-                vc.delegate = self;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [vc show];
-                });
+                [self atGroup];
+//                NIMContactSelectViewController *vc = [[NIMContactSelectViewController alloc] initWithConfig:config];
+//                vc.delegate = self;
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [vc show];
+//                });
             }
                 break;
             case NIMSessionTypeSuperTeam:
@@ -585,11 +592,12 @@
                 config.teamId = self.session.sessionId;
                 config.session = self.session;
                 config.filterIds = @[[NIMSDK sharedSDK].loginManager.currentAccount];
-                NIMContactSelectViewController *vc = [[NIMContactSelectViewController alloc] initWithConfig:config];
-                vc.delegate = self;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [vc show];
-                });
+                [self atGroup];
+//                NIMContactSelectViewController *vc = [[NIMContactSelectViewController alloc] initWithConfig:config];
+//                vc.delegate = self;
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [vc show];
+//                });
             }
                 break;
             case NIMSessionTypeP2P:
