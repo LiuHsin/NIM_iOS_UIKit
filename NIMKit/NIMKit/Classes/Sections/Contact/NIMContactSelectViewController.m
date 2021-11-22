@@ -54,20 +54,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = NIMKit_UIColorFromRGB(0x383836);
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.view addSubview:self.tableView];
+//    self.view.backgroundColor = NIMKit_UIColorFromRGB(0x383836);
+//    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+//    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    [self.view addSubview:self.tableView];
+//
+//    [self.view addSubview:self.selectIndicatorView];
+//
+//    self.tableView.dataSource = self;
+//    self.tableView.delegate = self;
+//
+//    [self setUpNav];
+//
+//    self.selectIndicatorView.pickedView.delegate = self;
+//    [self.selectIndicatorView.doneButton addTarget:self action:@selector(onDoneBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:self.selectIndicatorView];
-    
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
-    [self setUpNav];
-    
-    self.selectIndicatorView.pickedView.delegate = self;
-    [self.selectIndicatorView.doneButton addTarget:self action:@selector(onDoneBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.navigationBar setHidden:YES];
+    _showView.frame = self.view.bounds;
+    [self.view addSubview:_showView];
 }
 
 - (void)setUpNav

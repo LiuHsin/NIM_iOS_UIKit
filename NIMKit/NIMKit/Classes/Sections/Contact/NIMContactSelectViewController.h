@@ -36,6 +36,9 @@ typedef void(^ContactSelectCancelBlock)(void);
 
 @property (nonatomic, copy) ContactSelectCancelBlock cancelBlock;
 
+///呈现的View外部传入
+@property (nonatomic, strong) UIView *showView;
+
 /**
  *  初始化方法
  *
