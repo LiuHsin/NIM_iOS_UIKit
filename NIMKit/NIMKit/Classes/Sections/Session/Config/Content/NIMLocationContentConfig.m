@@ -12,7 +12,7 @@
 
 - (CGSize)contentSize:(CGFloat)cellWidth message:(NIMMessage *)message
 {
-    return CGSizeMake(110.f, 105.f);
+    return CGSizeMake(260.f, 131.5f);
 }
 
 - (NSString *)cellContent:(NIMMessage *)message
