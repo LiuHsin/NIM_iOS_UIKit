@@ -75,8 +75,14 @@
     }
     NSString * localStr = locationObject.title;
     NSArray *strArray = [localStr componentsSeparatedByString:@"@"];
-    self.titleLabel.text = strArray[0];
-    self.detailLabel.text = strArray[1];
+    if (strArray.count == 2) {
+        self.titleLabel.text = strArray[0];
+        self.detailLabel.text = strArray[1];
+    } else if (strArray.count) {
+        self.titleLabel.text = strArray[0];
+    } else {
+        
+    }
     
 //    NIMKitSetting *setting = [[NIMKit sharedKit].config setting:data.message];
 //
