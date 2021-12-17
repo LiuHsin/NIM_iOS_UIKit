@@ -193,7 +193,8 @@
     [_toolBar.recordButton addTarget:self action:@selector(onTouchRecordBtnUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
     _toolBar.nim_size = [_toolBar sizeThatFits:CGSizeMake(self.nim_width, CGFLOAT_MAX)];
     _toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [_toolBar.recordButton setTitle:@"按住说话".nim_localized forState:UIControlStateNormal];
+    [_toolBar.recordButton setTitle:@"按住 说话".nim_localized forState:UIControlStateNormal];
+    [_toolBar.recordButton setTitle:@"松开 发送" forState:UIControlStateHighlighted];
     [_toolBar.recordButton setHidden:YES];
     
     //设置最大输入字数
