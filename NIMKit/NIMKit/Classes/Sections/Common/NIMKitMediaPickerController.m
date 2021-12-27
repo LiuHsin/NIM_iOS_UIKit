@@ -22,6 +22,8 @@
 - (instancetype)initWithMaxImagesCount:(NSInteger)maxImagesCount {
     if (self = [super initWithMaxImagesCount:maxImagesCount delegate:nil]) {
         self.pickerDelegate = self;
+        self.naviBgColor = [UIColor colorWithRed:40/255.0 green:50/255.0 blue:67/255.0 alpha:1.0];
+        self.iconThemeColor = [UIColor colorWithRed:11/255.0 green:57/255.0 blue:175/255.0 alpha:1.0];
     }
     return self;
 }

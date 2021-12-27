@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     os.dependency 'SDWebImage', '~> 5.0.6'
     os.dependency 'FLAnimatedImage', '~> 1.0.12'
     os.dependency 'Toast', '~> 3.0'         
-    os.dependency 'TZImagePickerController', '~> 3.5.2'  
+    os.dependency 'TZImagePickerController'  
     os.dependency 'M80AttributedLabel', '~> 1.9.9' 
     os.dependency 'YYImage', '~> 1.0.4'
 	os.dependency 'YYImage/WebP', '~> 1.0.4'       

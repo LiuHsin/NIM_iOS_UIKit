@@ -60,10 +60,10 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
     double OnedayTimeIntervalValue = 24*60*60;  //一天的秒数
 
     result = [NIMKitUtil getPeriodOfTime:hour withMinute:msgDateComponents.minute];
-    if (hour > 12)
-    {
-        hour = hour - 12;
-    }
+//    if (hour > 12)
+//    {
+//        hour = hour - 12;
+//    }
     
     BOOL isSameMonth = (nowDateComponents.year == msgDateComponents.year) && (nowDateComponents.month == msgDateComponents.month);
     BOOL isSameYear = nowDateComponents.year == msgDateComponents.year;
