@@ -91,10 +91,10 @@
 - (void)layoutSubviews {
     CGSize size = [_timeLabel sizeThatFits:CGSizeMake(NIMKit_ViewWidth, MAXFLOAT)];
     _timeLabel.frame = CGRectMake(0, 0, NIMKit_ViewWidth, size.height);
-    _timeLabel.center = _whiteView.center;
+    _timeLabel.center = CGPointMake(_whiteView.center.x, _whiteView.center.y - 3);
     size = [_tipLabel sizeThatFits:CGSizeMake(NIMKit_ViewWidth, MAXFLOAT)];
     _tipLabel.frame = CGRectMake(0, 0, NIMKit_ViewWidth, size.height);
-    _tipLabel.center = _orangeView.center;
+    _tipLabel.center = CGPointMake(_orangeView.center.x, _orangeView.center.y - 3);
 }
 
 
