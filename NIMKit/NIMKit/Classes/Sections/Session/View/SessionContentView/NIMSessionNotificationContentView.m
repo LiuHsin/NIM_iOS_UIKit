@@ -41,7 +41,7 @@
     [super layoutSubviews];
     CGFloat padding = [NIMKit sharedKit].config.maxNotificationTipPadding;
     self.label.nim_size = [self.label sizeThatFits:CGSizeMake(self.nim_width - 2 * padding, CGFLOAT_MAX)];
-    self.label.nim_centerX = self.nim_width * .5f;
+    self.label.nim_centerX = self.nim_width * .5f + 15;
     self.label.nim_centerY = self.nim_height * .5f;
     self.bubbleImageView.frame = CGRectInset(self.label.frame, -8, -4);
 }

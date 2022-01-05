@@ -397,7 +397,7 @@
     }
     else
     {
-        _bubbleView.nim_top  = contentInsets.top;
+        _bubbleView.nim_top  = contentInsets.top - 5; //让bubbleView上移5像素
     }
 
 }
@@ -481,7 +481,7 @@
         CGFloat padding = [self audioPlayedIconBubblePadding];
         if (self.model.shouldShowLeft)
         {
-            _audioPlayedIcon.nim_left = _bubblesBackgroundView.nim_right + padding;
+            _audioPlayedIcon.nim_left = _bubblesBackgroundView.nim_right - padding;
         }
         else
         {

@@ -151,7 +151,7 @@
         case NIMSessionMessageContentViewLayoutLeft:
             {
                 backgroundWidth = self.nim_width - contentInsets.left * .5f - 2;
-                backgroundLeft = contentInsets.left * .5f;
+                backgroundLeft = 0;
             }
             break;
         case NIMSessionMessageContentViewLayoutRight:
@@ -168,7 +168,7 @@
                 backgroundLeft = 2;
             } else {
                 backgroundWidth = self.nim_width - contentInsets.left * .5f - 2;
-                backgroundLeft = contentInsets.left * .5f;
+                backgroundLeft = 0; 
             }
             break;
         }

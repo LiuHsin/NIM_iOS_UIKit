@@ -52,7 +52,7 @@
         
         _detailLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _detailLabel.textAlignment = NSTextAlignmentLeft;
-        _detailLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:15];
+        _detailLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
         _detailLabel.numberOfLines = 0;
         [self addSubview:_detailLabel];
     }
@@ -67,7 +67,7 @@
     if (message.isOutgoingMsg) {
         _imageView.image = _rightImage;
         _titleLabel.textColor = [UIColor whiteColor];
-        _detailLabel.textColor = [UIColor whiteColor];
+        _detailLabel.textColor = [UIColor colorWithRed:200/255.0 green:215/255.0 blue:255/255.0 alpha:1.0];
     } else {
         _imageView.image = _leftImage;
         _titleLabel.textColor = [UIColor colorWithRed:40/255.0 green:50/255.0 blue:67/255.0 alpha:1.0];

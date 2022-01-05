@@ -195,6 +195,7 @@
     _toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [_toolBar.recordButton setTitle:@"按住 说话".nim_localized forState:UIControlStateNormal];
     [_toolBar.recordButton setTitle:@"松开 发送" forState:UIControlStateHighlighted];
+    [_toolBar.recordButton.titleLabel setFont: [UIFont fontWithName:@"PingFangSC-Medium" size:14]];
     [_toolBar.recordButton setAdjustsImageWhenHighlighted: NO];
     [_toolBar.recordButton setHidden:YES];
     
