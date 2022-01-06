@@ -217,11 +217,14 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
         
         switch (content.operationType) {
             case NIMTeamOperationTypeInvite:{
-                NSString *str = [NSString stringWithFormat:@"%@邀请%@".nim_localized,source,targets.firstObject];
+                NSString *str = [NSString stringWithFormat:@"%@ 邀请  %@".nim_localized,source,targets.firstObject];
                 if (targets.count>1) {
-                    str = [str stringByAppendingFormat:@"%zd人".nim_localized,targets.count];
+                    str = [str stringByAppendingFormat:@"、%@", targets[1]];
+                    if (targets.count>2) {
+                        str = [str stringByAppendingFormat:@" %zd 等人".nim_localized,targets.count];
+                    }
                 }
-                str = [str stringByAppendingFormat:@"进入了%@".nim_localized,teamName];
+                str = [str stringByAppendingFormat:@" 进入了%@".nim_localized,teamName];
                 formatedMessage = str;
             }
                 break;
@@ -658,7 +661,7 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
 
 + (NSString *)teamNotificationTeamShowName:(NIMMessage *)message{
     NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:message.session.sessionId];
-    NSString *teamName = team.type == NIMTeamTypeNormal ? @"讨论组".nim_localized : @"群".nim_localized;
+    NSString *teamName = team.type == NIMTeamTypeNormal ? @"讨论组".nim_localized : @"群组".nim_localized;
     return teamName;
 }
 

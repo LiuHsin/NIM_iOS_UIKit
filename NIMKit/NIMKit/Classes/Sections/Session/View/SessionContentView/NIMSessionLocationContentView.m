@@ -111,13 +111,13 @@
     self.detailLabel.nim_top = 36.f;
     self.detailLabel.nim_left = 15;
     
-    UIEdgeInsets contentInsets  = self.model.contentViewInsets;
+//    UIEdgeInsets contentInsets  = self.model.contentViewInsets;
+//
+//    CGFloat tableViewWidth = self.superview.nim_width;
+//    CGSize contentsize          = [self.model contentSize:tableViewWidth];
     
-    CGFloat tableViewWidth = self.superview.nim_width;
-    CGSize contentsize          = [self.model contentSize:tableViewWidth];
-    
-    CGRect imageViewFrame = CGRectMake(contentInsets.left, contentInsets.top, contentsize.width, contentsize.height);
-    self.imageView.frame  = imageViewFrame;
+//    CGRect imageViewFrame = CGRectMake(contentInsets.left, contentInsets.top, contentsize.width, contentsize.height);
+    self.imageView.frame  = self.bounds;
 }
 
 

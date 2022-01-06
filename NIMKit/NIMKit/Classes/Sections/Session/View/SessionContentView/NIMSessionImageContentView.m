@@ -60,7 +60,7 @@
     CGFloat tableViewWidth = self.superview.nim_width;
     CGSize contentSize = [self.model contentSize:tableViewWidth];
     CGRect imageViewFrame = CGRectMake(contentInsets.left, contentInsets.top, contentSize.width, contentSize.height);
-    self.imageView.frame  = imageViewFrame;
+    self.imageView.frame  = self.bounds;
     _progressView.frame   = self.bounds;
     
     CALayer *maskLayer = [CALayer layer];

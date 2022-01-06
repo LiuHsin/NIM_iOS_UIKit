@@ -397,7 +397,8 @@
     }
     else
     {
-        _bubbleView.nim_top  = contentInsets.top - 5; //让bubbleView上移5像素
+//        _bubbleView.nim_top  = contentInsets.top;
+        _bubbleView.nim_top  = 0; //让bubbleView与头像顶齐
     }
 
 }
