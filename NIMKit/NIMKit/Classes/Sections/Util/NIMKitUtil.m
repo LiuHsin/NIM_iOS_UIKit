@@ -229,7 +229,8 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
             }
                 break;
             case NIMTeamOperationTypeDismiss:
-                formatedMessage = [NSString stringWithFormat:@"%@解散了%@".nim_localized,source,teamName];
+                formatedMessage = @"群组已解散";
+//                formatedMessage = [NSString stringWithFormat:@"%@解散了%@".nim_localized,source,teamName];
                 break;
             case NIMTeamOperationTypeKick:{
                 NSString *str = [NSString stringWithFormat:@"%@将%@".nim_localized,source,targets.firstObject];
@@ -249,6 +250,7 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
                     //如果只是单个项目项被修改则显示具体的修改项
                     if ([teamAttachment.values count] == 1) {
                         NIMTeamUpdateTag tag = [[[teamAttachment.values allKeys] firstObject] integerValue];
+                        BOOL isOn = [[[[NIMSDK sharedSDK] teamManager] teamById: [message session].sessionId] joinMode] == NIMTeamJoinModeNoAuth;
                         switch (tag) {
                             case NIMTeamUpdateTagName:
                                 formatedMessage = [NSString stringWithFormat:@"%@更新了%@名称".nim_localized,source,teamName];
@@ -260,7 +262,12 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
                                 formatedMessage = [NSString stringWithFormat:@"%@更新了%@公告".nim_localized,source,teamName];
                                 break;
                             case NIMTeamUpdateTagJoinMode:
-                                formatedMessage = [NSString stringWithFormat:@"%@更新了%@验证方式".nim_localized,source,teamName];
+                                if (isOn) {
+                                    formatedMessage = @"该群组已开启入群自动审批";
+                                } else {
+                                    formatedMessage = @"该群已关闭入群自动审批，新加入的朋友需群主确认才能进入群组";
+                                }
+//                                formatedMessage = [NSString stringWithFormat:@"%@更新了%@验证方式".nim_localized,source,teamName];
                                 break;
                             case NIMTeamUpdateTagAvatar:
                                 formatedMessage = [NSString stringWithFormat:@"%@更新了%@头像".nim_localized,source,teamName];
@@ -358,7 +365,8 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
             }
                 break;
             case NIMSuperTeamOperationTypeDismiss:
-                formatedMessage = [NSString stringWithFormat:@"%@解散了%@".nim_localized,source,teamName];
+                formatedMessage = @"群组已解散";
+//                formatedMessage = [NSString stringWithFormat:@"%@解散了%@".nim_localized,source,teamName];
                 break;
             case NIMSuperTeamOperationTypeKick:{
                 NSString *str = [NSString stringWithFormat:@"%@将%@".nim_localized,source,targets.firstObject];
