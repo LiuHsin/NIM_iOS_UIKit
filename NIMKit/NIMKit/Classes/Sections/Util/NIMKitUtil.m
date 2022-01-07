@@ -236,7 +236,7 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
                 if (targets.count>1) {
                     str = [str stringByAppendingFormat:@"%zd人".nim_localized,targets.count];
                 }
-                str = [str stringByAppendingFormat:@"移出了%@".nim_localized,teamName];
+                str = [str stringByAppendingFormat:@"移出%@".nim_localized,teamName];
                 formatedMessage = str;
             }
                 break;
@@ -365,7 +365,7 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
                 if (targets.count>1) {
                     str = [str stringByAppendingFormat:@"%zd人".nim_localized,targets.count];
                 }
-                str = [str stringByAppendingFormat:@"移出了%@".nim_localized,teamName];
+                str = [str stringByAppendingFormat:@"移出%@".nim_localized,teamName];
                 formatedMessage = str;
             }
                 break;
