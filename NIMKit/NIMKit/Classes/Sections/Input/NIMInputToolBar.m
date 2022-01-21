@@ -48,6 +48,7 @@
         [_recordButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_recordButton.titleLabel setFont:[UIFont systemFontOfSize:14.f]];
         [_recordButton setBackgroundImage:[[UIImage nim_imageInKit:@"icon_input_text_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(15,80,15,80) resizingMode:UIImageResizingModeStretch] forState:UIControlStateNormal];
+        [_recordButton setBackgroundImage:[[UIImage nim_imageInKit:@"icon_input_text_bg_highted"] resizableImageWithCapInsets:UIEdgeInsetsMake(15,80,15,80) resizingMode:UIImageResizingModeStretch] forState:UIControlStateHighlighted];
         _recordButton.exclusiveTouch = YES;
         [_recordButton sizeToFit];
         

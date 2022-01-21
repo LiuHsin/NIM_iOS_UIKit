@@ -25,7 +25,7 @@
         [self addSubview:_progressLabel];
         
         _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [self addSubview:_activity];
+//        [self addSubview:_activity];
     }
     
     return self;
@@ -62,7 +62,8 @@
     _activity.center = CGPointMake(CGRectGetMidX(self.bounds), y+CGRectGetMidY(_activity.bounds));
     
     _progressLabel.bounds = CGRectMake(0, 0, size.width, size.height);
-    _progressLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(_activity.frame) + kPadding + size.height/2.0);
+//    _progressLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(_activity.frame) + kPadding + size.height/2.0);
+    _progressLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(self.bounds) * 0.75);
     
     
     CGRect frame = self.bounds;

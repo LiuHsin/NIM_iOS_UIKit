@@ -262,12 +262,12 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
                                 formatedMessage = [NSString stringWithFormat:@"%@更新了%@公告".nim_localized,source,teamName];
                                 break;
                             case NIMTeamUpdateTagJoinMode:
-                                if (isOn) {
-                                    formatedMessage = @"该群组已开启入群自动审批";
-                                } else {
-                                    formatedMessage = @"该群已关闭入群自动审批，新加入的朋友需群主确认才能进入群组";
-                                }
-//                                formatedMessage = [NSString stringWithFormat:@"%@更新了%@验证方式".nim_localized,source,teamName];
+//                                if (isOn) {
+//                                    formatedMessage = @"该群组已开启入群自动审批";
+//                                } else {
+//                                    formatedMessage = @"该群已关闭入群自动审批，新加入的朋友需群主确认才能进入群组";
+//                                }
+                                formatedMessage = [NSString stringWithFormat:@"%@更新了%@验证方式".nim_localized,source,teamName];
                                 break;
                             case NIMTeamUpdateTagAvatar:
                                 formatedMessage = [NSString stringWithFormat:@"%@更新了%@头像".nim_localized,source,teamName];
