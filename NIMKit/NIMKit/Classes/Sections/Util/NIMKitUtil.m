@@ -259,7 +259,8 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
                                 formatedMessage = [NSString stringWithFormat:@"%@更新了%@介绍".nim_localized,source,teamName];
                                 break;
                             case NIMTeamUpdateTagAnouncement:
-                                formatedMessage = [NSString stringWithFormat:@"%@更新了%@公告".nim_localized,source,teamName];
+//                                formatedMessage = [NSString stringWithFormat:@"%@更新了%@公告".nim_localized,source,teamName];
+                                formatedMessage = @"你有新公告";
                                 break;
                             case NIMTeamUpdateTagJoinMode:
 //                                if (isOn) {
