@@ -397,8 +397,8 @@
     }
     else
     {
-//        _bubbleView.nim_top  = contentInsets.top;
-        _bubbleView.nim_top  = 0; //让bubbleView与头像顶齐
+        _bubbleView.nim_top  = contentInsets.top;
+//        _bubbleView.nim_top  = 0; //让bubbleView与头像顶齐
     }
 
 }
