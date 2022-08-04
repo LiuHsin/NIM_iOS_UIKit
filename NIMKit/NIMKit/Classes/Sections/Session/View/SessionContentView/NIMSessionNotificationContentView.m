@@ -31,8 +31,8 @@
     self.label.text = [NIMKitUtil messageTipContent:model.message];
     NIMKitSetting *setting = [[NIMKit sharedKit].config setting:model.message];
     
-    self.label.textColor = setting.textColor;
-    self.label.font = setting.font;
+    self.label.textColor = [UIColor colorWithRed:139/255.0 green:146/255.0 blue:157/255.0 alpha:1.0];
+    self.label.font = [UIFont systemFontOfSize:10.f];
     self.label.textAlignment = UITextAlignmentCenter;
     self.bubbleImageView.hidden = NO;
 }
