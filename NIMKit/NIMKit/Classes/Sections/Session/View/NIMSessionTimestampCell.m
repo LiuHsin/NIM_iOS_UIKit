@@ -31,9 +31,9 @@
         [self.contentView addSubview:_timeBGView];
         _timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _timeLabel.font = [UIFont systemFontOfSize:10.f];
-        _timeLabel.textColor = [UIColor colorWithRed:139/255.0 green:146/255.0 blue:157/255.0 alpha:1.0];
+        _timeLabel.textColor = [UIColor colorWithRed:168/255.0 green:175/255.0 blue:186/255.0 alpha:1.0];
         [self.contentView addSubview:_timeLabel];
-        [_timeBGView setImage:[[UIImage nim_imageInKit:@"icon_session_time_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(8,20,8,20) resizingMode:UIImageResizingModeStretch]];
+//        [_timeBGView setImage:[[UIImage nim_imageInKit:@"icon_session_time_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(8,20,8,20) resizingMode:UIImageResizingModeStretch]];
 
     }
     return self;

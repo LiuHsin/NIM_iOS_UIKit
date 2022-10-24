@@ -48,6 +48,8 @@ static char * kOriLineBreakMode = "kOriLineBreakMode";
         else
         {
             NSString *text = token.text;
+//            NSAttributedString *attr = [self messageStringTransforAttributeString:text];
+//            self.attributedText = attr;
             [self appendText:text];
             containEmojiUnicode = [text nim_containsEmoji];
         }
@@ -68,6 +70,24 @@ static char * kOriLineBreakMode = "kOriLineBreakMode";
 
 - (CTLineBreakMode)oriLineBreakMode{
     return (CTLineBreakMode)[objc_getAssociatedObject(self, kOriLineBreakMode)integerValue];
+}
+
+- (NSAttributedString *)messageStringTransforAttributeString:(NSString *)string {
+//    NSError *error;
+//    NSString *regularStr = @"(https?|http)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]";
+//    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularStr options:NSRegularExpressionCaseInsensitive error:&error];
+//    NSArray *arrayOfAllMatches = [regex firstMatchInString:string options:0 range:NSMakeRange(0, [string length])];
+//
+//    NSMutableArray *arr = [[NSMutableArray alloc] init];
+//    for (NSTextCheckingResult *match in arrayOfAllMatches) {
+//        NSString *substringForMatch;
+//        substringForMatch = [string substringWithRange:match.range];
+//        [arr addObject:substringForMatch];
+//    }
+    
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:string];
+    [attStr addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, 1)];
+    return attStr;
 }
 
 
