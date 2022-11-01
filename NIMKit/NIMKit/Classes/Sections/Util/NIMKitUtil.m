@@ -312,7 +312,7 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
             }
                 break;
             case NIMTeamOperationTypeTransferOwner:
-                formatedMessage = [NSString stringWithFormat:@"%@转移了群主身份给%@".nim_localized,source,targetText];
+                formatedMessage = [NSString stringWithFormat:@"%@ 转移了群主身份给 %@".nim_localized,source,targetText];
                 break;
             case NIMTeamOperationTypeAddManager:
                 formatedMessage = [NSString stringWithFormat:@"%@被添加为群管理员".nim_localized,targetText];
