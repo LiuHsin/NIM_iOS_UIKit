@@ -45,10 +45,10 @@
     if ([[self cellContent:model] isEqualToString:@"NIMSessionNotificationContentView"]) {
         return UIEdgeInsetsZero;
     }
-    CGFloat cellTopToBubbleTop           = 3;
+    CGFloat cellTopToBubbleTop           = 0;
     CGFloat otherNickNameHeight          = 20;
-    CGFloat bubbleLeftToCellLeft         = 13;
-    CGFloat otherBubbleOriginX           = [self shouldShowAvatar:model] ? [self avatarSize:model].width + bubbleLeftToCellLeft : 0;
+    CGFloat bubbleLeftToCellLeft         = 25;
+    CGFloat otherBubbleOriginX           = [self shouldShowAvatar:model] ? [self avatarSize:model].width + bubbleLeftToCellLeft : 20;
     CGFloat cellBubbleButtomToCellButtom = 13;
     if ([self shouldShowNickName:model])
     {
@@ -133,17 +133,17 @@
 
 - (CGPoint)avatarMargin:(NIMMessageModel *)model
 {
-    return CGPointMake(8.f, 0.f);
+    return CGPointMake(15.f, 0.f);
 }
 
 - (CGSize)avatarSize:(NIMMessageModel *)model
 {
-    return CGSizeMake(42, 42);
+    return CGSizeMake(40, 40);
 }
 
 - (CGPoint)nickNameMargin:(NIMMessageModel *)model
 {
-    return [self shouldShowAvatar:model] ? CGPointMake([self avatarSize:model].width + 15.f, -3.f) : CGPointMake(10.f, -3.f);
+    return [self shouldShowAvatar:model] ? CGPointMake([self avatarSize:model].width + 25.f, -3.f) : CGPointMake(10.f, -3.f);
 }
 
 

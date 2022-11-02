@@ -70,17 +70,17 @@
         sep.backgroundColor = [UIColor lightGrayColor];
         sep.nim_size = CGSizeMake(self.nim_width, .5f);
         sep.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self addSubview:sep];
+//        [self addSubview:sep];
         
         //底部分割线
         _bottomSep = [[UIView alloc] initWithFrame:CGRectZero];
         _bottomSep.backgroundColor = [UIColor lightGrayColor];
-        [self addSubview:_bottomSep];
+//        [self addSubview:_bottomSep];
         
         self.types = @[
                          @(NIMInputBarItemTypeVoice),
                          @(NIMInputBarItemTypeTextAndRecord),
-                         @(NIMInputBarItemTypeEmoticon),
+//                         @(NIMInputBarItemTypeEmoticon),
                          @(NIMInputBarItemTypeMore),
                        ];
     }
@@ -139,7 +139,7 @@
         textViewWidth += view.nim_width;
     }
     textViewWidth += (self.spacing * (self.types.count + 1));
-    self.inputTextView.nim_width  = width  - textViewWidth - 2 * self.textViewPadding;
+    self.inputTextView.nim_width  = width  - textViewWidth - 2 * self.textViewPadding - 30;
 }
 
 
@@ -147,7 +147,7 @@
     [super layoutSubviews];
     
     if ([self.types containsObject:@(NIMInputBarItemTypeTextAndRecord)]) {
-        self.inputTextBkgImage.nim_width  = self.inputTextView.nim_width  + 2 * self.textViewPadding;
+        self.inputTextBkgImage.nim_width  = self.inputTextView.nim_width  + 2 * self.textViewPadding + 30;
         self.inputTextBkgImage.nim_height = self.inputTextView.nim_height + 2 * self.textViewPadding;
     }
     CGFloat left = 0;
@@ -156,11 +156,12 @@
         if (!view.superview)
         {
             [self addSubview:view];
+            
+            view.nim_left = left + self.spacing;
+            view.nim_centerY = self.nim_height * .5f;
+            left = view.nim_right;
         }
         
-        view.nim_left = left + self.spacing;
-        view.nim_centerY = self.nim_height * .5f;
-        left = view.nim_right;
     }
     
     [self adjustTextAndRecordView];
@@ -176,7 +177,16 @@
 {
     if ([self.types containsObject:@(NIMInputBarItemTypeTextAndRecord)])
     {
-        self.inputTextView.center  = self.inputTextBkgImage.center;
+        self.inputTextView.nim_right  = self.inputTextBkgImage.nim_right;
+        self.inputTextView.nim_centerY = self.inputTextBkgImage.nim_centerY;
+        
+        if (!self.emoticonBtn.superview) {
+            //表情
+            CGFloat left = self.inputTextBkgImage.nim_left + 6;
+            CGFloat top = self.inputTextBkgImage.nim_top + 6;
+            self.emoticonBtn.frame = CGRectMake(left, top, 28, 28);
+            [self addSubview:self.emoticonBtn];
+        }
         
         if (!self.inputTextView.superview)
         {
@@ -321,7 +331,7 @@
 }
 
 - (CGFloat)spacing{
-    return 6.f;
+    return 10.f;
 }
 
 - (CGFloat)textViewPadding

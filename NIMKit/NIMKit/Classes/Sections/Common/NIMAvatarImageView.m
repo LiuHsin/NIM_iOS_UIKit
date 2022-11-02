@@ -79,7 +79,7 @@
             _cornerRadius = self.nim_width *.5f;
             break;
         case NIMKitAvatarTypeRadiusCorner:
-            _cornerRadius = 6.f;
+            _cornerRadius = 10.f;
             break;
         default:
             break;
