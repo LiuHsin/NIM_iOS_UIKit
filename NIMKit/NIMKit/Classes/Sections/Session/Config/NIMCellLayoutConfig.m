@@ -49,7 +49,7 @@
     CGFloat otherNickNameHeight          = 20;
     CGFloat bubbleLeftToCellLeft         = 25;
     CGFloat otherBubbleOriginX           = [self shouldShowAvatar:model] ? [self avatarSize:model].width + bubbleLeftToCellLeft : 20;
-    CGFloat cellBubbleButtomToCellButtom = 13;
+    CGFloat cellBubbleButtomToCellButtom = 15;
     if ([self shouldShowNickName:model])
     {
         //要显示名字
