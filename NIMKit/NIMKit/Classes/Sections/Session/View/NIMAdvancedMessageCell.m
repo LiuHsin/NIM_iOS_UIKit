@@ -361,7 +361,4 @@ static const CGFloat kNIMAdvancedBackgroundPadding = 5;
 }
 
 
-
-
-
 @end

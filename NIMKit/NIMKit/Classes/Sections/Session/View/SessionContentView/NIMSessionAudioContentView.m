@@ -87,6 +87,8 @@
     [self setPlaying:self.isPlaying];
     
     [self refreshBackground:data];
+    
+//    [self refreshVoiceImages:data];
 }
 
 - (void)refreshBackground:(NIMMessageModel *)data
@@ -112,6 +114,17 @@
     }
     _audioBackgroundView.backgroundColor = color;
     _audioBackgroundView.layer.cornerRadius = 10.f;
+}
+
+//设计非得要求跟安卓保持一致
+- (void)refreshVoiceImages:(NIMMessageModel *)data {
+    UIImage *image;
+    if (data.shouldShowLeft) {
+        image = [UIImage nim_imageInKit:@"icon_receiver_voice_playing.png"];
+    } else {
+        image = [UIImage nim_imageInKit:@"icon_receiver_voice_playing_right.png"];
+    }
+    _voiceImageView.image = image;
 }
 
 
