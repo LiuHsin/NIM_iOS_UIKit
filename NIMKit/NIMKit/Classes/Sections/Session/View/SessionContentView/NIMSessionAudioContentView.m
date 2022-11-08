@@ -146,10 +146,11 @@
         default:
         {
             if (self.model.message.isOutgoingMsg) {
-                self.voiceImageView.nim_right = self.nim_width - contentInsets.right * 2;
+                //音频图片右移17像素
+                self.voiceImageView.nim_right = self.nim_width - contentInsets.right * 2 + 17;
                 _durationLabel.nim_left = contentInsets.left * 2;
             } else {
-               self.voiceImageView.nim_left = contentInsets.left;
+               self.voiceImageView.nim_left = contentInsets.left - 3;
                 _durationLabel.nim_right = self.nim_width - contentInsets.right * 2;
             }
             break;

@@ -50,7 +50,7 @@
         
         _timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _timeLabel.font = [UIFont fontWithName:@"" size:NIMKit_TimeFontSize];
-        _timeLabel.textColor = [UIColor colorWithRed:40/255 green:50/255 blue:67/255 alpha:1];
+        _timeLabel.textColor = [UIColor whiteColor];
         _timeLabel.textAlignment = NSTextAlignmentCenter;
         _timeLabel.text = @"00: 00";
         [_whiteView addSubview:_timeLabel];

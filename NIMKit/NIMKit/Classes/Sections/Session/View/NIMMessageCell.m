@@ -312,6 +312,11 @@
 
 - (void)layoutAvatar
 {
+//    BOOL needShow = [self needShowAvatar];
+//    _headImageView.hidden = !needShow;
+//    if (needShow) {
+//        _headImageView.frame = [self avatarViewRect];
+//    }
     //右侧的头像直接隐藏掉,省的这个吊毛老出来
     if (!self.model.message.isOutgoingMsg) {
         BOOL needShow = [self needShowAvatar];
@@ -385,7 +390,8 @@
     if (!self.model.shouldShowLeft)
     {
         //self.nim_width - 15 当不显示头像时右边距为15
-        CGFloat right = self.model.shouldShowAvatar? CGRectGetMinX(self.headImageView.frame)  - protraitRightToBubble : self.nim_width - 15;
+        CGFloat right = self.nim_width - 15;
+//        CGFloat right = self.model.shouldShowAvatar? CGRectGetMinX(self.headImageView.frame)  - protraitRightToBubble : self.nim_width - 15;
         left = right - CGRectGetWidth(self.bubbleView.bounds);
     } else {
         if (![self needShowSelectButton]) {
@@ -394,7 +400,6 @@
             left = contentInsets.left + _selectButton.nim_right + protraitRightToBubble;
         }
     }
-    
     _bubbleView.nim_left = left;
     if (_replyedBubbleView)
     {
