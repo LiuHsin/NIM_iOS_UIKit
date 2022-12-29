@@ -48,12 +48,14 @@
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:15];
         _titleLabel.numberOfLines = 0;
+        _titleLabel.textColor = [UIColor colorWithRed:40/255.0 green:50/255.0 blue:67/255.0 alpha:1.0];
         [self addSubview:_titleLabel];
         
         _detailLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _detailLabel.textAlignment = NSTextAlignmentLeft;
         _detailLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
         _detailLabel.numberOfLines = 0;
+        _detailLabel.textColor = [UIColor colorWithRed:139/255.0 green:146/255.0 blue:157/255.0 alpha:1.0];
         [self addSubview:_detailLabel];
     }
     return self;
@@ -66,12 +68,8 @@
     NIMLocationObject * locationObject = (NIMLocationObject*)message.messageObject;
     if (message.isOutgoingMsg) {
         _imageView.image = _rightImage;
-        _titleLabel.textColor = [UIColor whiteColor];
-        _detailLabel.textColor = [UIColor colorWithRed:200/255.0 green:215/255.0 blue:255/255.0 alpha:1.0];
     } else {
         _imageView.image = _leftImage;
-        _titleLabel.textColor = [UIColor colorWithRed:40/255.0 green:50/255.0 blue:67/255.0 alpha:1.0];
-        _detailLabel.textColor = [UIColor colorWithRed:139/255.0 green:146/255.0 blue:157/255.0 alpha:1.0];
     }
     NSString * localStr = locationObject.title;
     NSArray *strArray = [localStr componentsSeparatedByString:@"@"];
