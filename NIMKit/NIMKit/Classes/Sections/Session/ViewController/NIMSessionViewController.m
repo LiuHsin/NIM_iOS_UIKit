@@ -197,7 +197,7 @@
 {
     [self uiCheckReceipts:nil];
     [self.tableView reloadData];
-    [self.tableView nim_scrollToBottom:NO];
+    [self.tableView nim_scrollToBottom:YES];
 }
 
 - (void)didRefreshMessageData
