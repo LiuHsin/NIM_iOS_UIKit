@@ -78,9 +78,9 @@
 
 - (void)refresh{
     if (!self.recentSessions.count) {
-        self.tableView.hidden = YES;
+//        self.tableView.hidden = YES;
     }else{
-        self.tableView.hidden = NO;
+//        self.tableView.hidden = NO;
         [self customSortRecents:self.recentSessions];
     }
     [self.tableView reloadData];

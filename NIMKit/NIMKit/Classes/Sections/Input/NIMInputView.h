@@ -52,6 +52,7 @@ typedef NS_ENUM(NSInteger, NIMAudioRecordPhase) {
 
 @property (nonatomic, assign) NIMInputStatus status;
 @property (nonatomic, strong) NIMInputAtCache *atCache;
+@property (nonatomic, strong) NSMutableDictionary *allCache;
 
 - (instancetype)initWithFrame:(CGRect)frame
                        config:(id<NIMSessionConfig>)config;
