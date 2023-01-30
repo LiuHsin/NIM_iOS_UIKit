@@ -56,7 +56,6 @@
         _recording = NO;
         _recordPhase = AudioRecordPhaseEnd;
         _atCache = [[NIMInputAtCache alloc] init];
-        _allCache = [[NSMutableDictionary alloc] init];
         _inputConfig = config;
         self.backgroundColor = [UIColor whiteColor];
     }
@@ -683,11 +682,7 @@
 - (void)didPressSend:(id)sender{
     if ([self.actionDelegate respondsToSelector:@selector(onSendText:atUsers:)] && [self.toolBar.contentText length] > 0) {
         NSString *sendText = self.toolBar.contentText;
-        if ([sendText containsString:@"@所有人"]) {
-            [self.actionDelegate onSendText:sendText atUsers: [self.allCache valueForKey:@"所有人"]];
-        } else {
-            [self.actionDelegate onSendText:sendText atUsers:[self.atCache allAtUid:sendText]];
-        }
+        [self.actionDelegate onSendText:sendText atUsers:[self.atCache allAtUid:sendText]];
         [self.atCache clean];
         self.toolBar.contentText = @"";
         [self.toolBar layoutIfNeeded];
