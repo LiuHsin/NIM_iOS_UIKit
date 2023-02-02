@@ -466,7 +466,10 @@
     if (atUsers.count)
     {
         NIMMessageApnsMemberOption *apnsOption = [[NIMMessageApnsMemberOption alloc] init];
-        apnsOption.userIds = atUsers;
+        if (atUsers.count < 100)
+        {
+            apnsOption.userIds = atUsers;
+        } 
         apnsOption.forcePush = YES;
         
         NIMKitInfoFetchOption *option = [[NIMKitInfoFetchOption alloc] init];

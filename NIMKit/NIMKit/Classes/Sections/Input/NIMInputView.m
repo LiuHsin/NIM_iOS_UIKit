@@ -56,6 +56,7 @@
         _recording = NO;
         _recordPhase = AudioRecordPhaseEnd;
         _atCache = [[NIMInputAtCache alloc] init];
+        _allCache = [[NSMutableArray alloc] init];
         _inputConfig = config;
         self.backgroundColor = [UIColor whiteColor];
     }
@@ -682,7 +683,13 @@
 - (void)didPressSend:(id)sender{
     if ([self.actionDelegate respondsToSelector:@selector(onSendText:atUsers:)] && [self.toolBar.contentText length] > 0) {
         NSString *sendText = self.toolBar.contentText;
-        [self.actionDelegate onSendText:sendText atUsers:[self.atCache allAtUid:sendText]];
+        NSArray *userArray = [self.allCache copy];
+        if ([userArray count] != 0) {
+            [self.actionDelegate onSendText:sendText atUsers: userArray];
+        } else {
+           [self.actionDelegate onSendText:sendText atUsers:[self.atCache allAtUid:sendText]];
+        }
+        [self.allCache removeAllObjects];
         [self.atCache clean];
         self.toolBar.contentText = @"";
         [self.toolBar layoutIfNeeded];
