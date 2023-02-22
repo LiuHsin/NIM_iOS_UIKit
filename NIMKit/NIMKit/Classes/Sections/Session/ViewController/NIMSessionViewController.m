@@ -63,6 +63,8 @@
     [super viewDidLoad];
     //导航栏
     [self setupNav];
+    //scrollView
+    [self setupScrollView];
     //消息 tableView
     [self setupTableView];
     //输入框 inputView
@@ -87,10 +89,23 @@
     self.navigationItem.leftItemsSupplementBackButton = YES;
 }
 
-- (void)setupTableView
+- (void)setupScrollView
 {
     self.view.backgroundColor = [UIColor whiteColor];
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.scrollView.contentSize = CGSizeMake(self.view.nim_width, self.view.nim_height);
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.bounces = NO;
+    self.scrollView.delegate = self;
+    [self.view addSubview:self.scrollView];
+}
+
+- (void)setupTableView
+{
+    self.tableView = [[UITableView alloc] initWithFrame:self.scrollView.bounds style:UITableViewStylePlain];
     self.tableView.backgroundColor = NIMKit_UIColorFromRGB(0xe4e7ec);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.estimatedRowHeight = 0;
@@ -109,7 +124,7 @@
         imgView.contentMode = UIViewContentModeScaleAspectFill;
         self.tableView.backgroundView = imgView;
     }
-    [self.view addSubview:self.tableView];
+    [self.scrollView addSubview:self.tableView];
 }
 
 
@@ -123,7 +138,7 @@
         [self.sessionInputView setInputDelegate:self];
         [self.sessionInputView setInputActionDelegate:self];
         [self.sessionInputView refreshStatus:NIMInputStatusText];
-        [self.view addSubview:_sessionInputView];
+        [self.scrollView addSubview:_sessionInputView];
     }
 }
 
@@ -1016,8 +1031,40 @@
     return _advanceMenu;
 }
 
+- (void)scrollViewScrollLeft
+{
+    
+}
 
+- (void)scrollViewScrollRight
+{
+    
+}
 
+#pragma mark - scroll delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView == self.scrollView)
+    {
+        [self.sessionInputView endEditing:YES];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (scrollView == self.scrollView && (self.scrollView.contentSize.width > self.view.nim_width))
+    {
+        if (scrollView.contentOffset.x > 0)
+        {
+            [self scrollViewScrollRight];
+        }
+        else
+        {
+            [self scrollViewScrollLeft];
+        }
+    }
+}
 
 @end
 

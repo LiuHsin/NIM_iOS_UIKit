@@ -14,7 +14,9 @@
 #import "NIMInputView.h"
 #import "NIMAdvanceMenu.h"
 
-@interface NIMSessionViewController : UIViewController<NIMSessionInteractorDelegate,NIMInputActionDelegate,NIMMessageCellDelegate,NIMChatManagerDelegate,NIMConversationManagerDelegate,NIMChatExtendManagerDelegate>
+@interface NIMSessionViewController : UIViewController<NIMSessionInteractorDelegate,NIMInputActionDelegate,NIMMessageCellDelegate,NIMChatManagerDelegate,NIMConversationManagerDelegate,NIMChatExtendManagerDelegate,UIScrollViewDelegate>
+
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @property (nonatomic, strong)  UITableView *tableView;
 
@@ -214,5 +216,16 @@
  * 跳转到对应消息
  */
 - (void)scrollToMessage:(NIMMessage *)message;
+
+
+/**
+ *自定义添加方法 - scrollView左划
+ */
+- (void)scrollViewScrollLeft;
+
+/**
+ *自定义添加方法 - scrollView右划
+ */
+- (void)scrollViewScrollRight;
 
 @end
