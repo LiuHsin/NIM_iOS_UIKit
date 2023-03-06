@@ -220,10 +220,12 @@
     }
     else
     {
-        [self.tableView beginUpdates];
-        [self.tableView insertRowsAtIndexPaths:addIndexPathes
-                              withRowAnimation:UITableViewRowAnimationNone];
-        [self.tableView endUpdates];
+        //为了跟安卓下拉加载保持一样的效果,用reloadData代替updates方法
+//        [self.tableView beginUpdates];
+//        [self.tableView insertRowsAtIndexPaths:addIndexPathes
+//                              withRowAnimation:UITableViewRowAnimationNone];
+//        [self.tableView endUpdates];
+        [self.tableView reloadData];
         [self.tableView scrollToRowAtIndexPath:addIndexPathes.lastObject
                               atScrollPosition:UITableViewScrollPositionTop
                                       animated:NO];
