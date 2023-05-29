@@ -44,9 +44,15 @@
     _imageView.image = nil;
     NIMImageObject * imageObject = (NIMImageObject*)self.model.message.messageObject;
     
+    //有时图片拿不到 做个兼容处理
     NSData *imageData = [[NSData alloc] initWithContentsOfFile:imageObject.thumbPath];
-    YYImage *image = [YYImage imageWithData:imageData scale:[UIScreen mainScreen].scale];
-    _imageView.image = image;
+    if (imageData != nil) {
+        YYImage *image = [YYImage imageWithData:imageData scale:[UIScreen mainScreen].scale];
+        _imageView.image = image;
+    } else {
+        NSURL *imageUrl = [[NSURL alloc] initWithString:imageObject.thumbUrl];
+        [_imageView sd_setImageWithURL: imageUrl];
+    }
     
     self.progressView.hidden     = self.model.message.isOutgoingMsg ? (self.model.message.deliveryState != NIMMessageDeliveryStateDelivering) : (self.model.message.attachmentDownloadState != NIMMessageAttachmentDownloadStateDownloading);
     if (!self.progressView.hidden) {
