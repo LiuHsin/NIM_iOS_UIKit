@@ -217,7 +217,7 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
         
         switch (content.operationType) {
             case NIMTeamOperationTypeInvite:{
-                NSString *str = [NSString stringWithFormat:@"%@ 邀请  %@".nim_localized,source,targets.firstObject];
+                NSString *str = [NSString stringWithFormat:@"%@ 邀请 %@".nim_localized,source,targets.firstObject];
                 if (targets.count>1) {
                     str = [str stringByAppendingFormat:@"、%@", targets[1]];
                     if (targets.count>2) {
@@ -233,11 +233,11 @@ static NSDateComponentsFormatter *_dateComponentsFormatter;
 //                formatedMessage = [NSString stringWithFormat:@"%@解散了%@".nim_localized,source,teamName];
                 break;
             case NIMTeamOperationTypeKick:{
-                NSString *str = [NSString stringWithFormat:@"%@将%@".nim_localized,source,targets.firstObject];
+                NSString *str = [NSString stringWithFormat:@"%@ 将 %@".nim_localized,source,targets.firstObject];
                 if (targets.count>1) {
                     str = [str stringByAppendingFormat:@"%zd人".nim_localized,targets.count];
                 }
-                str = [str stringByAppendingFormat:@"移出%@".nim_localized,teamName];
+                str = [str stringByAppendingFormat:@" 移出%@".nim_localized,teamName];
                 formatedMessage = str;
             }
                 break;
