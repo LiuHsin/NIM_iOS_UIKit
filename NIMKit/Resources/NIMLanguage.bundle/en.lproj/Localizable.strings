@@ -14,7 +14,7 @@
 "发来了一张图片" = "Sent a picture";
 "发来了一条位置信息" = "Sent a message of location";
 "已读" = "Have read";
-"未知类型消息" = "Unknown message type";
+"客户端版本不支持该内容" = "Unknown message type";
 "位置" = "Location";
 "请在设置-隐私里允许程序使用地理位置服务" = "Please allow applications to use geolocation services in Settings-Privacy";
 "请打开地理位置服务" = "Please turn on geolocation services";

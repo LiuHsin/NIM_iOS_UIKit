@@ -23,7 +23,7 @@
     if (self)
     {
         _label = [[UILabel alloc] initWithFrame:CGRectZero];
-        _label.text = @"未知类型消息".nim_localized;
+        _label.text = @"客户端版本不支持该内容".nim_localized;
     }
     return self;
 }

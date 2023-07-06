@@ -36,7 +36,7 @@
 
 - (void)refresh:(NIMMessageModel *)data{
     [super refresh:data];
-    NSString *text = @"未知类型消息".nim_localized;
+    NSString *text = @"客户端版本不支持该内容".nim_localized;
     
     NIMKitSetting *setting = [[NIMKit sharedKit].config setting:data.message];
 

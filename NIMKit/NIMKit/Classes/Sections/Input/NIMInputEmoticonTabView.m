@@ -37,15 +37,16 @@ const CGFloat NIMInputLineBoarder = .5f;
         
         _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_sendButton setTitle:@"发送".nim_localized forState:UIControlStateNormal];
-        _sendButton.titleLabel.font = [UIFont systemFontOfSize:13.f];
-        [_sendButton setBackgroundColor:NIMKit_UIColorFromRGB(0x0079FF)];
+        _sendButton.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:15.f];
+        [_sendButton setBackgroundColor:NIMKit_UIColorFromRGB(0x002FA7)];
         
         _sendButton.nim_height = NIMInputEmoticonTabViewHeight;
         _sendButton.nim_width = NIMInputEmoticonSendButtonWidth;
+        _sendButton.layer.cornerRadius = 10;
         [self addSubview:_sendButton];
         
-        self.layer.borderColor = sepColor.CGColor;
-        self.layer.borderWidth = NIMInputLineBoarder;
+//        self.layer.borderColor = sepColor.CGColor;
+//        self.layer.borderWidth = NIMInputLineBoarder;
         
     }
     return self;
@@ -65,12 +66,14 @@ const CGFloat NIMInputLineBoarder = .5f;
         [button setImage:[UIImage nim_emoticonInKit:catelog.iconPressed] forState:UIControlStateHighlighted];
         [button setImage:[UIImage nim_emoticonInKit:catelog.iconPressed] forState:UIControlStateSelected];
         [button addTarget:self action:@selector(onTouchTab:) forControlEvents:UIControlEventTouchUpInside];
+        button.layer.cornerRadius = 5;
         [button sizeToFit];
         [self addSubview:button];
         [_tabs addObject:button];
         
         UIView *sep = [[UIView alloc] initWithFrame:CGRectMake(0, 0, NIMInputLineBoarder, NIMInputEmoticonTabViewHeight)];
-        sep.backgroundColor = sepColor;
+//        sep.backgroundColor = sepColor;
+        sep.backgroundColor = [UIColor whiteColor];
         [_seps addObject:sep];
         [self addSubview:sep];
     }
@@ -89,23 +92,30 @@ const CGFloat NIMInputLineBoarder = .5f;
     for (NSInteger i = 0; i < self.tabs.count ; i++) {
         UIButton *btn = self.tabs[i];
         btn.selected = i == index;
+        if (i == index) {
+            btn.backgroundColor = [UIColor colorWithRed:239/255.0 green:242/255.0 blue:249/255.0 alpha:1.0];
+        } else {
+            btn.backgroundColor = [UIColor whiteColor];
+        }
     }
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    CGFloat spacing = 10;
+    CGFloat spacing = 15;
     CGFloat left    = spacing;
     for (NSInteger index = 0; index < self.tabs.count ; index++) {
         UIButton *button = self.tabs[index];
         button.nim_left = left;
         button.nim_centerY = self.nim_height * .5f;
+        button.nim_width = NIMInputEmoticonTabViewHeight;
+        button.nim_height = NIMInputEmoticonTabViewHeight;
         
         UIView *sep = self.seps[index];
-        sep.nim_left = (int)(button.nim_right + spacing);
+        sep.nim_left = (int)(button.nim_right);
         left = (int)(sep.nim_right + spacing);
     }
-    _sendButton.nim_right = (int)self.nim_width;
+    _sendButton.nim_right = (int)self.nim_width - 15;
 }
 
 

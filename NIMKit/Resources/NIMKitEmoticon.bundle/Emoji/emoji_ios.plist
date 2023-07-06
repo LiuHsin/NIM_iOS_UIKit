@@ -1003,7 +1003,7 @@
 			<key>id</key>
 			<string>default</string>
 			<key>normal</key>
-			<string>emoj_s_normal.png</string>
+			<string>emoj_s_pressed.png</string>
 			<key>pressed</key>
 			<string>emoj_s_pressed.png</string>
 			<key>title</key>
