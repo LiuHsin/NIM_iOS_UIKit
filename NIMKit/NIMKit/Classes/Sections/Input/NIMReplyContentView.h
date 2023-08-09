@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NIMReplyContentView : UIView
 
+@property (nonatomic, strong) UIView *blueView;
+
 @property (nonatomic,strong) UIButton *closeButton;
 
 @property (nonatomic,strong) UIView *divider;

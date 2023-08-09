@@ -294,7 +294,8 @@
 
 - (void)refreshReplyedContent:(NIMMessage *)message
 {
-    NSString *text = [NSString stringWithFormat:@"%@", [[NIMKit sharedKit] replyedContentWithMessage:message]];
+//    NSString *text = [NSString stringWithFormat:@"%@", [[NIMKit sharedKit] replyedContentWithMessage:message]];
+    NSString *text = [message text];
     [self.replyedContent.label nim_setText:text];
 
     self.replyedContent.hidden = NO;
@@ -348,16 +349,22 @@
 {
     [super layoutSubviews];
     //这里不做.语法 get 操作，会提前初始化组件导致卡顿
-    if (!_replyedContent.hidden)
+    if (!_replyedContent.hidden && _replyedContent != nil)
     {
-        self.toolBar.nim_top = _replyedContent.nim_bottom;
+//        self.toolBar.nim_top = _replyedContent.nim_bottom;
+        self.toolBar.nim_top = 0.f;
+        _replyedContent.nim_top = self.toolBar.nim_bottom;
+        _moreContainer.nim_top     = _replyedContent.nim_bottom;
+        _emoticonContainer.nim_top = _replyedContent.nim_bottom;
     }
     else
     {
         self.toolBar.nim_top = 0.f;
+        _moreContainer.nim_top     = self.toolBar.nim_bottom;
+        _emoticonContainer.nim_top = self.toolBar.nim_bottom;
     }
-    _moreContainer.nim_top     = self.toolBar.nim_bottom;
-    _emoticonContainer.nim_top = self.toolBar.nim_bottom;
+//    _moreContainer.nim_top     = self.toolBar.nim_bottom;
+//    _emoticonContainer.nim_top = self.toolBar.nim_bottom;
 }
 
 - (NIMReplyContentView *)replyedContent
@@ -840,8 +847,9 @@
 
 - (void)onClearReplyContent:(id)sender
 {
-    [self setNeedsLayout];
-    self.toolBar.inputTextView.text = nil;
+    [self sizeToFit];
+//    [self setNeedsLayout];
+//    self.toolBar.inputTextView.text = nil;
     if ([self.actionDelegate respondsToSelector:@selector(didReplyCancelled)])
     {
         [self.actionDelegate didReplyCancelled];
