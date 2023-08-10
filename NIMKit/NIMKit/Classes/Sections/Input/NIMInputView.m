@@ -371,7 +371,7 @@
 {
     if (!_replyedContent)
     {
-        _replyedContent = [[NIMReplyContentView alloc] initWithFrame:CGRectMake(0, 0, self.nim_width, 35)];
+        _replyedContent = [[NIMReplyContentView alloc] initWithFrame:CGRectMake(0, 0, self.nim_width, 30)];
         _replyedContent.hidden = YES;
         _replyedContent.delegate = self;
         [self addSubview:_replyedContent];

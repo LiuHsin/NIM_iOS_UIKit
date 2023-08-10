@@ -25,8 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) UIButton *closeButton;
 
-@property (nonatomic,strong) UIView *divider;
-
 @property (nonatomic,strong) M80AttributedLabel *label;
 
 @property (nonatomic,weak) id<NIMReplyContentViewDelegate> delegate;

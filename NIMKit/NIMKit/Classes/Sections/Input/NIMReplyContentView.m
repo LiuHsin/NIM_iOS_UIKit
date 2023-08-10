@@ -31,22 +31,17 @@
         _label = [[M80AttributedLabel alloc] init];
         _label.numberOfLines = 1;
         _label.textAlignment = kCTTextAlignmentLeft;
-        _label.lineBreakMode = kCTLineBreakByTruncatingTail;
+        _label.lineBreakMode = kCTLineBreakByCharWrapping;
         _label.font = [UIFont systemFontOfSize:12];
         _label.backgroundColor = [UIColor clearColor];
         _label.textColor = [UIColor colorWithHex:0x8B929D alpha:1];
-        [self addSubview:_label];
+        [_blueView addSubview:_label];
         
         _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_closeButton setImage:[UIImage nim_imageInKit:@"icon_reply_close"]
                       forState:UIControlStateNormal];
         [_closeButton addTarget:self action:@selector(onClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_closeButton];
-        
-//        _divider = [[UIView alloc] init];
-//        _divider.backgroundColor = [UIColor colorWithHex:0xBFBFBF alpha:1];
-//        _divider.nim_width = 1;
-//        [self addSubview:_divider];
+        [_blueView addSubview:_closeButton];
     }
     return self;
 }
@@ -54,19 +49,20 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    self.blueView.nim_left = 65;
+    self.blueView.nim_top = 0;
+    self.blueView.nim_height = self.nim_height - 10;
+    self.blueView.nim_width = self.nim_width - 80;
+    
     self.closeButton.nim_size = CGSizeMake(20, 20);
     self.closeButton.nim_left = 0;
-    self.closeButton.nim_centerY = self.nim_height * 0.5;
+    self.closeButton.nim_centerY = self.blueView.nim_height * 0.5;
     
-//    self.divider.nim_left = self.closeButton.nim_right + 2;
     
-    self.label.nim_height = self.label.intrinsicContentSize.height + 5;
-    self.label.nim_width = self.nim_width - 35;
     self.label.nim_left = 25;
-    self.label.nim_centerY = self.nim_height * 0.5;
-    
-//    self.divider.nim_height = self.label.nim_height;
-//    self.divider.nim_centerY = self.nim_height * .5f;
+    self.label.nim_height = self.label.intrinsicContentSize.height;
+    self.label.nim_width = self.blueView.nim_width - 35;
+    self.label.nim_centerY = self.closeButton.nim_centerY;
 }
 
 - (void)dismiss
