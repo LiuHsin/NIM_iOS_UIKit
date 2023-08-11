@@ -29,7 +29,7 @@
         [self addSubview:_blueView];
         
         _label = [[M80AttributedLabel alloc] init];
-        _label.numberOfLines = 1;
+        _label.numberOfLines = 2;
         _label.textAlignment = kCTTextAlignmentLeft;
         _label.lineBreakMode = kCTLineBreakByCharWrapping;
         _label.font = [UIFont systemFontOfSize:12];

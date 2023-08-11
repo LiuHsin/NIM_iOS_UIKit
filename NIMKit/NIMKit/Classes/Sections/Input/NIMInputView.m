@@ -295,8 +295,22 @@
 - (void)refreshReplyedContent:(NIMMessage *)message
 {
 //    NSString *text = [NSString stringWithFormat:@"%@", [[NIMKit sharedKit] replyedContentWithMessage:message]];
-    NSString *text = [message text];
-    [self.replyedContent.label nim_setText:text];
+    NSString *labelText = nil;
+    NSString *sendName = [[[NIMKit sharedKit] infoByUser:message.from option:nil] showName];
+    NSString *content = [message text];
+    if (message.messageType == NIMMessageTypeText || message.messageType == NIMMessageTypeCustom) {
+        NSString *text = [sendName stringByAppendingFormat:@"：%@", content];
+        labelText = text;
+    } else if (message.messageType == NIMMessageTypeImage) {
+        NSString *text = [sendName stringByAppendingFormat:@"：%@", @"[图片]"];
+        labelText = text;
+    } else if (message.messageType == NIMMessageTypeVideo) {
+        NSString *text = [sendName stringByAppendingFormat:@"：%@", @"[视频]"];
+        labelText = text;
+    } else {
+        labelText = @"";
+    }
+    [self.replyedContent.label nim_setText:labelText];
 
     self.replyedContent.hidden = NO;
     [self.replyedContent setNeedsLayout];
@@ -351,7 +365,15 @@
     //这里不做.语法 get 操作，会提前初始化组件导致卡顿
     if (!_replyedContent.hidden && _replyedContent != nil)
     {
-//        self.toolBar.nim_top = _replyedContent.nim_bottom;
+        NSString *text = _replyedContent.label.text;
+        CGSize size = [text nim_stringSizeWithFont: [UIFont systemFontOfSize:12]];
+        CGFloat textW = size.width;
+        CGFloat maxW = NIMKit_UIScreenWidth - 80;
+        if (textW > maxW) {
+            _replyedContent.nim_height = 47;
+        } else {
+            _replyedContent.nim_height = 30;
+        }
         self.toolBar.nim_top = 0.f;
         _replyedContent.nim_top = self.toolBar.nim_bottom;
         _moreContainer.nim_top     = _replyedContent.nim_bottom;
@@ -363,8 +385,6 @@
         _moreContainer.nim_top     = self.toolBar.nim_bottom;
         _emoticonContainer.nim_top = self.toolBar.nim_bottom;
     }
-//    _moreContainer.nim_top     = self.toolBar.nim_bottom;
-//    _emoticonContainer.nim_top = self.toolBar.nim_bottom;
 }
 
 - (NIMReplyContentView *)replyedContent
