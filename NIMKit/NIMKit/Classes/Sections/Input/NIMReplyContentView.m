@@ -62,7 +62,7 @@
     self.label.nim_left = 25;
     self.label.nim_height = self.label.intrinsicContentSize.height;
     self.label.nim_width = self.blueView.nim_width - 35;
-    self.label.nim_centerY = self.closeButton.nim_centerY;
+    self.label.nim_centerY = self.closeButton.nim_centerY + 1;
 }
 
 - (void)dismiss
